@@ -1,0 +1,26 @@
+<div class="envoltorioGlobal">
+
+<div class="caixaDados">
+            
+    <div class="titulo">
+        <p>PDF por E-mail</p>
+    </div>
+    <br>
+
+    {{#if acertos}}
+        {{#each acertos}}
+            <div class="espacoSimples"><b>{{texto}}</b></div>
+        {{/each}}
+    {{/if}}  
+
+    {{#if erros}}
+        {{#each erros}}
+            <div class="espacoSimples"><b>{{texto}}</b></div>
+        {{/each}}
+    {{/if}}  
+     
+    <button class="botao"><a href="/" style="text-decoration:none; color:black; display: block;">Encerrar</a></button>
+     
+</div>
+
+</div>

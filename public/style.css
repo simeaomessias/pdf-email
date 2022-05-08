@@ -1,0 +1,149 @@
+/* ============================================================ */
+/* RESET GERAL E DEFINIÇÃO DE VARIÁVEIS                         */
+/* ============================================================ */
+
+* {
+    margin: 0;
+    border: 0;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    list-style: none;
+}
+
+:root {
+    --branco: rgb(255,255,255);
+    --preto: rgb(0,0,0);
+    --vermelho: rgb(255,0,0);
+    --cinza-claro: rgb(200,200,200);
+    --laranja: rgb(255,200,0);
+    --azul-claro: rgb(0,191,255);
+}
+
+body {
+    background-color: var(--branco);
+    color: var(--preto);
+    overflow: scroll;
+}
+
+/* ============================================================ */
+/* TELAS
+/* ============================================================ */
+
+.envoltorioGlobal {
+    margin: 0; padding: 0; box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.formulario {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.caixaDados {
+    margin: 0; padding: 0; box-sizing: border-box;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial;
+    position: relative;
+    margin: 0 auto;
+    background-color: var(--azul-claro);
+    border: 1px solid black;
+}
+
+.titulo {
+    background-color: var(--laranja);
+    width: 100%;
+    color: var(--textoTitulo);
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nomeUsuario, .emailUsuario {
+    display: flex; flex-direction: column;
+    width: 100%; font-weight: bold;
+    padding: 10px 5px 0 5px;
+}
+
+#input-nomeUsuario, #input-emailUsuario, #input-emailUsuarioConfirmar {
+    background-color:  var(--branco);
+    width: 100%;
+    height: 28px;
+    border: 1px solid var(--preto);
+    outline: none;
+    font-size: 14px;
+    text-align: left;
+    padding-left: 5px;
+}
+
+.alerta-erros {
+    margin: 0; padding: 0; box-sizing: border-box;
+    background-color: var(--preto);
+    width: 97%;
+    color: var(--branco);
+    /* font-weight: bold; */
+    padding: 3px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.botao {
+    background-color: var(--laranja);
+    width: 40%;
+    height: 36px;
+    border: 1px solid var(--preto);
+    outline: none;
+    font-size: 16px;
+    text-align: left;
+    padding-left: 5px;
+    align-self: center;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.botao:hover {
+    font-weight: bold;
+    border: 2px solid black;
+}
+
+.caixaBotoes {
+    margin: 0; padding: 0; box-sizing: border-box;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#h1-aguarde {
+    margin-bottom: 20px;
+}
+
+#h4-mensagem {
+    margin-bottom: 20px;
+}
+
+.espacoSimples {
+    margin-bottom: 5px;
+}
+
+

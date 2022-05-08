@@ -1,0 +1,127 @@
+<div class="envoltorioGlobal">
+
+    <form action="/" method="post" class="formulario" name="formDados" id="formDados">
+        
+        <div class="caixaDados">
+            
+            <div class="titulo">
+                <p>PDF por E-mail</p>
+            </div>
+
+            <div class="nomeUsuario">
+                <label for="nomeUsuario" id="label-nomeUsuario">Nome completo</label>
+                <input type="text" name="nomeUsuario" id="input-nomeUsuario" required="true" autocomplete="off" autofocus="true" value="{{dados.nome}}">
+                {{!-- pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$" --}}
+            </div>
+
+            <div class="emailUsuario">
+                <label for="emailUsuario" id="label-emailUsuario">E-mail</label>
+                <input type="email" name="emailUsuario" id="input-emailUsuario" required="true" autocomplete="off" value="{{dados.email}}">
+            </div>
+
+            <div class="emailUsuario">
+                <label for="emailUsuarioConfirmar" id="label-emailUsuarioConfirmar">Confirme seu e-mail</label>
+                <input type="email" name="emailUsuarioConfirmar" id="input-emailUsuarioConfirmar" required="true" autocomplete="off" value="{{dados.emailConfirmacao}}">
+            </div>
+           
+            {{#if erros}}
+                {{#each erros}}
+                    <div class="alerta-erros">{{texto}}</div>
+                {{/each}}
+            {{/if}}  
+     
+            <input type="button" class="botao" value="Avançar" id="btn-avancar">
+
+            <table id="tabela-alertas">
+
+            </table>
+
+            <h1 id="h1-aguarde" style="display: none;">AGUARDE!</h1>
+            <h4 id="h4-mensagem" style="display: none;">Gerando arquivo e enviando e-mail.</h4>
+
+        </div>
+
+    </form>
+
+</div>
+
+<script>
+
+    // Formulário
+    var formulario = document.getElementById('formDados')
+
+    // Dados Gerais
+    var nome = document.getElementById('input-nomeUsuario')
+    var email = document.getElementById('input-emailUsuario')
+    var emailConfirmar = document.getElementById('input-emailUsuarioConfirmar')
+
+    var nomeLabel = document.getElementById('label-nomeUsuario')
+    var emailLabel = document.getElementById('label-emailUsuario')
+    var emailConfirmarLabel = document.getElementById('label-emailUsuarioConfirmar')
+    
+    // Botões
+    var btnAvancar = document.getElementById('btn-avancar')
+
+    // H1 (mensagem)
+    var h1Aguarde = document.getElementById('h1-aguarde')
+    var h4Mensagem = document.getElementById('h4-mensagem')
+
+    // Tabela de erros
+    var tabela = document.getElementById('tabela-alertas')
+
+    btnAvancar.addEventListener ('click', () => {
+
+        var erros = []
+        // Validações
+     
+        // CheckValidity do formulário (caso tenha algum elemento marcado com "required")
+        if (!formulario.checkValidity()) {
+            erros.push({texto: "Existem campos preenchidos de forma incorreta."})
+        }
+
+        if (!nome.value || typeof nome.value == undefined || nome.value == null) {
+            erros.push({texto: "Nome inválido."})
+        } else {
+            if (nome.value.length < 3) {
+                erros.push({texto: "Nome muito curto."})
+            }
+            if (!/[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/g.test(nome.value)) {
+                erros.push({texto: "O nome deve conter apenas letras."})
+            }
+        }
+        if (!email.value || typeof email.value == undefined || email.value == null) {
+            erros.push({texto: "E-mail inválido."})
+        }
+        if (!emailConfirmar.value || typeof emailConfirmar.value == undefined || emailConfirmar.value == null) {
+            erros.push({texto: "Confirmação de e-mail inválida."})
+        }
+        if (email.value !== emailConfirmar.value) {
+            erros.push({texto: "Os e-mails informados não são iguais."})
+        }
+
+
+        if (erros.length == 0) {
+            
+            tabela.style.display = 'none';
+            nome.style.display = 'none'; nomeLabel.style.display = 'none';
+            email.style.display = 'none'; emailLabel.style.display = 'none';
+            emailConfirmar.style.display = 'none'; emailConfirmarLabel.style.display = 'none';
+            btnAvancar.style.display = 'none'
+            h1Aguarde.style.display = 'block'
+            h4Mensagem.style.display = 'block'
+
+            formulario.submit()
+            
+        } else {
+                       
+            tabela.style.display = 'block'
+            tabela.innerHTML = ""
+            for (var i=0; i<=erros.length-1;i++) {
+                tabela.innerHTML +="<tr><td class='alerta-erros'>"+erros[i].texto+"</td></tr>"
+            }
+            erros = []
+
+        }
+    })
+
+</script>

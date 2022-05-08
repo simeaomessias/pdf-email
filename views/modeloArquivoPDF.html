@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>PDF por E-mail</title>
+    <meta charset="UTF-8">
+
+
+    <style>
+        * {
+            margin: 0;
+            border: 0;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            /* list-style: none; */
+        }
+
+        :root {
+            --branco: rgb(255,255,255);
+            --preto: rgb(0,0,0);
+            --vermelho: rgb(255,0,0);
+            --cinza-claro: rgb(200,200,200);
+            --laranja: rgb(255,200,0);
+            --azul-claro: rgb(0,191,255,0.9);
+        }
+
+        body {
+            background-color: var(--branco);
+            color: var(--preto);
+        }
+
+        .pagina {
+            margin: 0; padding: 0; box-sizing: border-box;
+            width: 100%;
+            height: 1100px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            background-color: var(--branco);
+        }
+
+        .corpo {
+            margin: 0; padding: 0; box-sizing: border-box;
+            background-color: var(--azul-claro);
+            width: 95%;
+            color: var(--preto);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            margin-bottom: 5px;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .subtitulo {
+            margin: 0; padding: 0; box-sizing: border-box;
+            background-color: var(--laranja);
+            color: var(--preto);
+            font-weight: bold;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        .paragrafo {
+            text-indent: 50px;
+            text-align: justify;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            padding-right: 10px;
+        }
+
+        .opcoes {
+            padding-left: 50px;
+            padding-right: 10px;
+            margin-top: 5px;
+        }
+
+        .opcoes li {
+            margin-bottom: 3px;
+            text-align: justify;
+        }
+
+
+    </style>
+    
+</head>
+
+<body>
+
+<div class="pagina">
+
+    <p class="subtitulo" style="font-size: 30px;">PDF POR EMAIL</p><br>
+
+    <div class="corpo">
+
+        <span class="paragrafo">Olá, <b style="color: blue;">{{nome}}</b>.</span><br><br>
+
+        <p class="paragrafo">Este é um arquivo de teste. O e-mail <b style="color: blue;">{{email}}</b> foi fornecido na página do projeto "PDF por E-mail".</p>
+        <p class="paragrafo">A aplicação consiste em gerar um arquivo no formato pdf e fazer o envio através da conta <b>sm-remetente@outlook.com</b>.</p><br><br>
+
+        <hr style="border: 1px black solid;">
+        <p class="subtitulo">TECNOLOGIAS UTILIZADAS</p>
+        <div class="opcoes">
+            <ul>
+                <li>HTML5</li>
+                <li>CCS3</li>
+                <li>JavaScript</li>
+                <li>Node.js / Express.js / Handlebars.js</li>
+                <li>Html-pdf</li>
+                <li>Nodemailer</li>
+            </ul>
+        </div><br>
+
+        <hr style="border: 1px black solid;">
+        <p class="subtitulo">FUNCIONALIDADES</p>
+        <div class="opcoes">
+            <ul>
+                <li>Um arquivo HTML (modelo deste documento) é compilado para uma função JavaScript com o Handlebars. Essa função recebe um objeto com os dados coletados no formulário e retorna uma string (HTML) com as propriedades do objeto inseridas.</li>
+                <li>Usando o Nodemailer (módulo Node.js para envio de e-mails), o arquivo é enviado a partir da conta sm-remetente@outlook.com</li>
+                
+            </ul>
+        </div><br>
+
+        <hr style="border: 1px black solid;">
+        <p class="subtitulo">COMO ACESSAR</p>
+        <div class="opcoes">
+            <ul>
+                <li> <b>Para testar a aplicação:</b> <br> https://sm-pdf-email.herokuapp.com/ </li>
+                <li> <b>Para instalar e executar o projeto:</b> <br> https://github.com/simeaomessias/pdf-email.git </li>
+            </ul>
+        </div><br>
+
+        <hr style="border: 1px black solid;">
+        <p class="subtitulo">CONTATO</p>
+        <div class="opcoes">
+            <ul>
+                <li> https://www.linkedin.com/in/simeaomessias/ </li>
+                <li> https://twitter.com/simeaomessias </li>
+            </ul>
+        </div><br>
+
+        <hr style="border: 1px black solid;">
+        <p class="subtitulo">AUTOR</p>
+        <div class="opcoes">
+            <ul>
+                <li> https://github.com/simeaomessias </li><br>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+    
+</body>
+
+</html>
+
+
+
+
+
+
